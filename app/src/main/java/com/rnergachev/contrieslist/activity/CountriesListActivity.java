@@ -11,7 +11,6 @@ import com.rnergachev.contrieslist.R;
 import com.rnergachev.contrieslist.adapter.CountriesListAdapter;
 import com.rnergachev.contrieslist.base.BaseActivity;
 import com.rnergachev.contrieslist.data.model.Country;
-import com.rnergachev.contrieslist.data.network.response.CountryResponse;
 import com.rnergachev.contrieslist.handler.CountriesListAdapterHandler;
 import com.rnergachev.contrieslist.viewmodel.CountriesListViewModel;
 
@@ -44,7 +43,7 @@ public class CountriesListActivity extends BaseActivity<CountriesListViewModel> 
     }
 
     @Override
-    public void onClick(CountryResponse country) {
+    public void onClick(Country country) {
         Intent intent = new Intent(this, CountryInfoActivity.class);
         //intent.putExtra(getString(R.string.detailed_country), country);
         startActivity(intent);

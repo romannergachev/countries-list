@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.rnergachev.contrieslist.base.BaseViewModel;
 import com.rnergachev.contrieslist.data.CountriesRepo;
-import com.rnergachev.contrieslist.data.network.response.CountryResponse;
+import com.rnergachev.contrieslist.data.model.Country;
 
 import javax.inject.Inject;
 
@@ -18,7 +18,7 @@ import io.reactivex.disposables.CompositeDisposable;
  */
 
 public class CountriesListViewModel implements BaseViewModel {
-    public final ObservableArrayList<CountryResponse> countriesList;
+    public final ObservableArrayList<Country> countriesList;
     private final CountriesRepo repo;
     private final CompositeDisposable subscriptions;
 

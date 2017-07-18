@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                app:imageUrl="@{model.countryInfo.title}"/>
+                app:imageUrl="@{model.countryInfo.name}"/>
 
             <TextView
                 android:id="@+id/userName"
@@ -31,7 +31,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:text="@{model.countryInfo.title}"
+                android:text="@{model.countryInfo.name}"
                 android:textAlignment="center"
                 android:textSize="24sp"/>
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="@{model.countryInfo.title}"
+            android:text="@{model.countryInfo.name}"
             android:textAlignment="center"
             android:textSize="30sp"
             android:textStyle="bold"/>
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="@{model.countryInfo.body}"/>
+            android:text="@{model.countryInfo.name}"/>
 
         <TextView
             android:id="@+id/numberOfComments"
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:text="@{model.countryInfo.title}"
+            android:text="@{model.countryInfo.name}"
             android:textSize="18sp"/>
 
     </LinearLayout>

@@ -3,8 +3,8 @@ package com.rnergachev.contrieslist.data;
 import android.content.Context;
 
 import com.rnergachev.contrieslist.R;
+import com.rnergachev.contrieslist.data.model.Country;
 import com.rnergachev.contrieslist.data.network.CountriesApi;
-import com.rnergachev.contrieslist.data.network.response.CountryResponse;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class CountriesRepo {
      * Load countries
      * @return {@link Single} list of countries
      */
-    public Single<List<CountryResponse>> getCountries() {
+    public Single<List<Country>> getCountries() {
         return api.getCountries()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread());

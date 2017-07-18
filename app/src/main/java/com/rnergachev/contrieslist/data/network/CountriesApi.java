@@ -1,6 +1,6 @@
 package com.rnergachev.contrieslist.data.network;
 
-import com.rnergachev.contrieslist.data.network.response.CountryResponse;
+import com.rnergachev.contrieslist.data.model.Country;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ public interface CountriesApi {
     /**
      * Returns all countries
      *
-     * @return {@link Single<ArrayList<CountryResponse>>}
+     * @return {@link Single<ArrayList< Country >>}
      */
-    @GET("countries")
-    Single<List<CountryResponse>> getCountries();
+    @GET("all")
+    Single<List<Country>> getCountries();
 }

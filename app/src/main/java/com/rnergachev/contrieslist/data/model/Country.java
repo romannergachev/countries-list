@@ -1,11 +1,8 @@
 package com.rnergachev.contrieslist.data.model;
 
-import android.databinding.BaseObservable;
-import android.databinding.Bindable;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.rnergachev.contrieslist.BR;
 
 /**
  * Country model class
@@ -13,52 +10,65 @@ import com.rnergachev.contrieslist.BR;
  * Created by rnergachev.
  */
 
-public class Country extends BaseObservable implements Parcelable {
-    private int id;
-    private String title;
-    private String body;
-    private String userName;
-    private int numberOfComments;
-    private String imageUrl;
+public class Country implements Parcelable {
+    private String name;
+    private String alpha2Code;
+    private String capital;
+    private String region;
+    private int population;
+    private int area;
+    private String nativeName;
+    private String flag;
+    private Currency currencies;
 
     public Country() {}
 
-    public Country(int id, String title, String body, String userName, String imageUrl) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-        this.userName = userName;
-        this.imageUrl = imageUrl;
+    public Country(String name, String alpha2Code, String capital, String region, int population, int area, String nativeName, String flag, Currency currencies) {
+        this.name = name;
+        this.alpha2Code = alpha2Code;
+        this.capital = capital;
+        this.region = region;
+        this.population = population;
+        this.area = area;
+        this.nativeName = nativeName;
+        this.flag = flag;
+        this.currencies = currencies;
     }
 
-    public int getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getAlpha2Code() {
+        return alpha2Code;
     }
 
-    public String getBody() {
-        return body;
+    public String getCapital() {
+        return capital;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getRegion() {
+        return region;
     }
 
-    @Bindable
-    public int getNumberOfComments() {
-        return numberOfComments;
+    public int getPopulation() {
+        return population;
     }
 
-    public void setNumberOfComments(int numberOfComments) {
-        this.numberOfComments = numberOfComments;
-        notifyPropertyChanged(BR.numberOfComments);
+    public int getArea() {
+        return area;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getNativeName() {
+        return nativeName;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public Currency getCurrencies() {
+        return currencies;
     }
 
     @Override
@@ -68,21 +78,27 @@ public class Country extends BaseObservable implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
-        dest.writeInt(this.numberOfComments);
-        dest.writeString(this.title);
-        dest.writeString(this.body);
-        dest.writeString(this.userName);
-        dest.writeString(this.imageUrl);
+        dest.writeParcelable(currencies, flags);
+        dest.writeInt(this.population);
+        dest.writeInt(this.area);
+        dest.writeString(this.name);
+        dest.writeString(this.alpha2Code);
+        dest.writeString(this.capital);
+        dest.writeString(this.region);
+        dest.writeString(this.nativeName);
+        dest.writeString(this.flag);
     }
 
     private Country(Parcel in) {
-        this.id = in.readInt();
-        this.numberOfComments = in.readInt();
-        this.title = in.readString();
-        this.body = in.readString();
-        this.userName = in.readString();
-        this.imageUrl = in.readString();
+        this.currencies = in.readParcelable(Currency.class.getClassLoader());
+        this.population = in.readInt();
+        this.area = in.readInt();
+        this.name = in.readString();
+        this.alpha2Code = in.readString();
+        this.capital = in.readString();
+        this.region = in.readString();
+        this.nativeName = in.readString();
+        this.flag = in.readString();
     }
 
     public static final Parcelable.Creator<Country> CREATOR = new Parcelable.Creator<Country>() {

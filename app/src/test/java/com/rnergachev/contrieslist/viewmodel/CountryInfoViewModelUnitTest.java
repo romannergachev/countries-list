@@ -34,6 +34,6 @@ public class CountryInfoViewModelUnitTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         vm = new CountryInfoViewModel(repo);
-        vm.countryInfo = new Country(0, "", "", "", "");
+        vm.countryInfo = new Country();
     }
 }

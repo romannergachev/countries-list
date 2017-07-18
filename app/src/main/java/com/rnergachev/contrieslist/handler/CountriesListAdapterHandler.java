@@ -1,6 +1,7 @@
 package com.rnergachev.contrieslist.handler;
 
-import com.rnergachev.contrieslist.data.network.response.CountryResponse;
+
+import com.rnergachev.contrieslist.data.model.Country;
 
 /**
  * List on click handler
@@ -14,5 +15,5 @@ public interface CountriesListAdapterHandler {
      *
      * @param country that has been selected
      */
-    void onClick(CountryResponse country);
+    void onClick(Country country);
 }
