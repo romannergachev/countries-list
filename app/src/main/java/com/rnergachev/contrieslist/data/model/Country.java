@@ -3,6 +3,8 @@ package com.rnergachev.contrieslist.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 
 /**
  * Country model class
@@ -16,14 +18,14 @@ public class Country implements Parcelable {
     private String capital;
     private String region;
     private int population;
-    private int area;
+    private double area;
     private String nativeName;
     private String flag;
-    private Currency currencies;
+    private List<Currency> currencies;
 
     public Country() {}
 
-    public Country(String name, String alpha2Code, String capital, String region, int population, int area, String nativeName, String flag, Currency currencies) {
+    public Country(String name, String alpha2Code, String capital, String region, int population, double area, String nativeName, String flag, List<Currency> currencies) {
         this.name = name;
         this.alpha2Code = alpha2Code;
         this.capital = capital;
@@ -55,7 +57,7 @@ public class Country implements Parcelable {
         return population;
     }
 
-    public int getArea() {
+    public double getArea() {
         return area;
     }
 
@@ -67,7 +69,7 @@ public class Country implements Parcelable {
         return flag;
     }
 
-    public Currency getCurrencies() {
+    public List<Currency> getCurrencies() {
         return currencies;
     }
 
@@ -78,9 +80,9 @@ public class Country implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(currencies, flags);
+        dest.writeList(currencies);
         dest.writeInt(this.population);
-        dest.writeInt(this.area);
+        dest.writeDouble(this.area);
         dest.writeString(this.name);
         dest.writeString(this.alpha2Code);
         dest.writeString(this.capital);
@@ -90,9 +92,9 @@ public class Country implements Parcelable {
     }
 
     private Country(Parcel in) {
-        this.currencies = in.readParcelable(Currency.class.getClassLoader());
+        in.readList(this.currencies, Currency.class.getClassLoader());
         this.population = in.readInt();
-        this.area = in.readInt();
+        this.area = in.readDouble();
         this.name = in.readString();
         this.alpha2Code = in.readString();
         this.capital = in.readString();
