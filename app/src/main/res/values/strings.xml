@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Contries List</string>
     <string name="base_url">https://restcountries.eu/rest/v2/</string>
-    <string name="detailed_country">DETAILED_POST</string>
-    <string name="country_url">https://api.adorable.io/avatar/256/%s</string>
+    <string name="flag_url">https://restcountries.eu/rest/v2/</string>
+    <string name="population">Population: %1$d</string>
+    <string name="capital">Capital: %1$s</string>
+    <string name="region">Region: %1$s</string>
+    <string name="detailed_country">COUNTRY</string>
+    <string name="transition_flag">flag</string>
+    <string name="transition_name">name</string>
 
-    <string name="comments">Comments: %d</string>
 </resources>
