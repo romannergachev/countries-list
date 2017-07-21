@@ -16,13 +16,11 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class CountryInfoViewModel implements BaseViewModel {
     public Country countryInfo;
-    private final CountriesRepo repo;
     private final CompositeDisposable subscriptions;
 
     @Inject
     public CountryInfoViewModel(CountriesRepo repo) {
         countryInfo = null;
-        this.repo = repo;
         this.subscriptions = new CompositeDisposable();
     }
 
