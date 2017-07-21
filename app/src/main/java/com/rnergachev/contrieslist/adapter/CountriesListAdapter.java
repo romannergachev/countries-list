@@ -33,7 +33,9 @@ public class CountriesListAdapter extends RecyclerView.Adapter<CountriesListAdap
 
         @Override
         public void onClick(View v) {
-            handler.onClick(viewModel.countriesList.get(getAdapterPosition()));
+            View flag = v.findViewById(R.id.flagImage);
+            View name = v.findViewById(R.id.nameText);
+            handler.onClick(viewModel.countriesList.get(getAdapterPosition()), flag, name);
         }
     }
 
@@ -77,8 +79,7 @@ public class CountriesListAdapter extends RecyclerView.Adapter<CountriesListAdap
     @Override
     public void onBindViewHolder(PostListViewHolder holder, int position) {
         ViewDataBinding binding = DataBindingUtil.bind(holder.itemView);
-        binding.setVariable(BR.model, viewModel);
-        binding.setVariable(BR.position, position);
+        binding.setVariable(BR.model, viewModel.countriesList.get(position));
         binding.executePendingBindings();
     }
 

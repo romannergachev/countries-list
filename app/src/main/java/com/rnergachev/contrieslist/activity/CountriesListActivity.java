@@ -3,8 +3,11 @@ package com.rnergachev.contrieslist.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.rnergachev.contrieslist.CountriesApplication;
 import com.rnergachev.contrieslist.R;
@@ -43,10 +46,13 @@ public class CountriesListActivity extends BaseActivity<CountriesListViewModel> 
     }
 
     @Override
-    public void onClick(Country country) {
+    public void onClick(Country country, View flag, View name) {
         Intent intent = new Intent(this, CountryInfoActivity.class);
-        //intent.putExtra(getString(R.string.detailed_country), country);
-        startActivity(intent);
+        intent.putExtra(getString(R.string.detailed_country), country);
+        Pair<View, String> p1 = Pair.create(flag, getString(R.string.transition_flag));
+        Pair<View, String> p2 = Pair.create(name, getString(R.string.transition_name));
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, p1, p2);
+        startActivity(intent, options.toBundle());
     }
 
     @Override
