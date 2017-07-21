@@ -6,30 +6,38 @@
 
         <variable
             name="model"
-            type="com.rnergachev.contrieslist.viewmodel.CountriesListViewModel"/>
-        <variable
-            name="position"
-            type="int"/>
+            type="com.rnergachev.contrieslist.data.model.Country"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:layout_marginBottom="1dp">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:imageUrl="@{model.countriesList[position].name}"/>
+            android:id="@+id/flagImage"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/borders"
+            android:cropToPadding="true"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transition_flag"
+            app:imageUrl="@{model.alpha2Code}"/>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/nameText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:layout_weight="1"
-            android:text="@{model.countriesList[position].name}"/>
+            android:text="@{model.name}"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:transitionName="@string/transition_name"/>
     </LinearLayout>
 </layout>
