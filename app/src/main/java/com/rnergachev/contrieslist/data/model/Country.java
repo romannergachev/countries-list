@@ -3,6 +3,7 @@ package com.rnergachev.contrieslist.data.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -92,6 +93,7 @@ public class Country implements Parcelable {
     }
 
     private Country(Parcel in) {
+        this.currencies = new ArrayList<>();
         in.readList(this.currencies, Currency.class.getClassLoader());
         this.population = in.readInt();
         this.area = in.readDouble();

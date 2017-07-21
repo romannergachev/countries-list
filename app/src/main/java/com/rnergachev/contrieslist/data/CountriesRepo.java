@@ -39,8 +39,4 @@ public class CountriesRepo {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread());
     }
-
-    private String getImageUrl(String email) {
-        return context.getString(R.string.country_url, email);
-    }
 }
