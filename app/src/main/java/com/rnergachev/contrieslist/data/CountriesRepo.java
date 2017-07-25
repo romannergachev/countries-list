@@ -1,8 +1,5 @@
 package com.rnergachev.contrieslist.data;
 
-import android.content.Context;
-
-import com.rnergachev.contrieslist.R;
 import com.rnergachev.contrieslist.data.model.Country;
 import com.rnergachev.contrieslist.data.network.CountriesApi;
 
@@ -22,12 +19,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class CountriesRepo {
     private CountriesApi api;
-    private Context context;
 
     @Inject
-    public CountriesRepo(CountriesApi api, Context context) {
+    public CountriesRepo(CountriesApi api) {
         this.api = api;
-        this.context = context;
     }
 
     /**

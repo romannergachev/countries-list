@@ -35,15 +35,13 @@ import static org.mockito.Mockito.when;
 public class CountriesRepoUnitTest {
     @Mock
     private CountriesApi api;
-    @Mock
-    Context context;
     private CountriesRepo repo;
     private List<Country> countriesList;
 
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        repo = new CountriesRepo(api, context);
+        repo = new CountriesRepo(api);
         RxAndroidPlugins.setInitMainThreadSchedulerHandler(__ -> Schedulers.trampoline());
         countriesList = new ArrayList<>();
         countriesList.add(new Country());
